@@ -1,0 +1,172 @@
+! Devin Thompson
+! 11/25/2020
+
+! This is the main processing script for RH batters
+
+
+Call_Script
+! Preprocessing
+/SCRIPT_FILE_NAME= SUB_PreProcessingSteps_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Bat and ball with raw data
+/SCRIPT_FILE_NAME=SUB_AllBatProcessing_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Filter target and landmark data
+/SCRIPT_FILE_NAME=SUB_Filtering_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Set_Pipeline_Parameter_To_List_Of_Model_Names
+/PARAMETER_NAME= MODELS
+/MODEL_NAMES=*
+! /GET_MODELS_FROM_ACTIVE_MOTION_FILES=
+! /GET_MODELS_FROM_MOTION_FILES=
+! /USE_SHORT_FILENAMES=false
+;
+
+For_Each
+/ITERATION_PARAMETER_NAME= INDEX
+! /ITERATION_PARAMETER_COUNT_NAME= 
+/ITEMS=::MODELS
+;
+
+Set_Model_Pose_Algorithm
+/CALIBRATION_FILE=::Index
+/ALGORITHM=Inverse Kinematics
+/OPTIMIZER=QUASI_NEWTON
+/FIT_CALIBRATION_FILE=TRUE
+! /START_WITH_SIMULATED_ANNEALING=FALSE
+! /F_TOLERANCE=1e-12
+! /X_TOLERANCE=1e-12
+! /G_TOLERANCE=1e-12
+! /IK_USE_ALL_FRAMES=true
+! /IK_EVENT_SEQUENCE=
+;
+
+Set_Use_Processed_Targets
+! Use processed targets for model calculations
+/USE_PROCESSED=TRUE
+/RECALC=TRUE ! Was TRUE
+;
+
+End_For_Each
+/ITERATION_PARAMETER_NAME = INDEX
+;
+
+Lowpass_Filter
+/SIGNAL_TYPES=LANDMARK
+! /SIGNAL_FOLDER=ORIGINAL
+! /SIGNAL_NAMES=
+/RESULT_FOLDER=LANDMARK_PROCESSED
+! /RESULT_SUFFIX=
+! /FILTER_CLASS=BUTTERWORTH
+/FREQUENCY_CUTOFF=15
+! /NUM_REFLECTED=6
+! /NUM_EXTRAPOLATED=0.
+! /TOTAL_BUFFER_SIZE=6
+! /NUM_BIDIRECTIONAL_PASSES=1
+;
+
+Call_Script
+! Determine the loading event
+/SCRIPT_FILE_NAME=SUB_LoadingEvent_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Define sequence and find foot-down event
+/SCRIPT_FILE_NAME=SUB_FootDownEvent_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Define sequence and then stance event
+/SCRIPT_FILE_NAME=SUB_StanceEvent_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Define sequence and then first hand movement event
+/SCRIPT_FILE_NAME=SUB_FirstHandMovementEvent_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Compute joint angles
+/SCRIPT_FILE_NAME=SUB_ComputeJointAngles_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Define sequence and follow-through event
+/SCRIPT_FILE_NAME=SUB_FollowThroughEvent_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Define sequence and foot-up event
+/SCRIPT_FILE_NAME=SUB_FootUpEvent_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Define sequence of all events
+! Compute the time between each event
+/SCRIPT_FILE_NAME=SUB_TimeBetweenEvents_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Compute joint velocities
+/SCRIPT_FILE_NAME=SUB_ComputeJointVelocities_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Compute the planar angles
+/SCRIPT_FILE_NAME=SUB_ComputePlanarAngles_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Compute the planar velocities
+/SCRIPT_FILE_NAME=SUB_ComputePlanarVelocities_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Extract all metrics at the events
+/SCRIPT_FILE_NAME=SUB_ExtractMetricsAtEvents_RH.v3s
+/SCRIPT_PATH=Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Compute the maximum values of certain metrics
+/SCRIPT_FILE_NAME=SUB_MaxMetrics_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Compute the times when the max metrics occurred
+/SCRIPT_FILE_NAME=SUB_MaxMetricsTimes_RH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Merge the data in preparation for export to ASCII files
+/SCRIPT_FILE_NAME=SUB_MergeData_RH.v3s
+/SCRIPT_PATH=Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+
+Call_Script
+! Export data to matfiles
+/SCRIPT_FILE_NAME=SUB_ExportDataMAT_RH.v3s
+/SCRIPT_PATH=Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\RH\
+;
+

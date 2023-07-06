@@ -1,0 +1,36 @@
+! Devin Thompson
+! 12/22/2020
+! Filtering subscript
+! Filters target data with a 15 Hz Butterworth filter, one bidirectional pass
+! Changed this from filtering the Landmark data now until after the model had been calculated, as the landmarks
+! are recalculated  when the model is recalculated based on the target data
+
+
+Lowpass_Filter
+/SIGNAL_TYPES=TARGET
+! /SIGNAL_FOLDER=ORIGINAL
+! /SIGNAL_NAMES=
+! /RESULT_FOLDER=PROCESSED
+! /RESULT_SUFFIX=
+! /FILTER_CLASS=BUTTERWORTH
+/FREQUENCY_CUTOFF=15
+! /NUM_REFLECTED=6
+! /NUM_EXTRAPOLATED=0
+! /TOTAL_BUFFER_SIZE=6
+/NUM_BIDIRECTIONAL_PASSES=1
+;
+
+!Lowpass_Filter
+!/SIGNAL_TYPES=LANDMARK
+!! /SIGNAL_FOLDER=ORIGINAL
+!! /SIGNAL_NAMES=
+!/RESULT_FOLDER=LANDMARK_PROCESSED
+!! /RESULT_SUFFIX=
+!! /FILTER_CLASS=BUTTERWORTH
+!/FREQUENCY_CUTOFF=15
+!! /NUM_REFLECTED=6
+!! /NUM_EXTRAPOLATED=0.
+!! /TOTAL_BUFFER_SIZE=6
+!! /NUM_BIDIRECTIONAL_PASSES=1
+!;
+

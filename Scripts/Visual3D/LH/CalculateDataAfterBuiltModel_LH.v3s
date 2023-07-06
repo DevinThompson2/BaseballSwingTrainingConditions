@@ -1,0 +1,102 @@
+Select_Active_File
+/FILE_NAME= Good
+! /QUERY=
+;
+
+Call_Script
+! Determine the loading event
+/SCRIPT_FILE_NAME=SUB_LoadingEvent_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Define sequence and find foot-down event
+/SCRIPT_FILE_NAME=SUB_FootDownEvent_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Define sequence and then stance event
+/SCRIPT_FILE_NAME=SUB_StanceEvent_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Define sequence and then first hand movement event
+/SCRIPT_FILE_NAME=SUB_FirstHandMovementEvent_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Compute joint angles
+/SCRIPT_FILE_NAME=SUB_ComputeJointAngles_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Define sequence and follow-through event
+/SCRIPT_FILE_NAME=SUB_FollowThroughEvent_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Define sequence and foot-up event
+/SCRIPT_FILE_NAME=SUB_FootUpEvent_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+; 
+
+Call_Script
+! Define sequence of all events
+! Compute the time between each event
+/SCRIPT_FILE_NAME=SUB_TimeBetweenEvents_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Compute joint velocities
+/SCRIPT_FILE_NAME=SUB_ComputeJointVelocities_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Compute the planar angles
+/SCRIPT_FILE_NAME=SUB_ComputePlanarAngles_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Compute the planar velocities
+/SCRIPT_FILE_NAME=SUB_ComputePlanarVelocities_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Extract all metrics at the events
+/SCRIPT_FILE_NAME=SUB_ExtractMetricsAtEvents_LH.v3s
+/SCRIPT_PATH=Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Compute the maximum values of certain metrics
+/SCRIPT_FILE_NAME=SUB_MaxMetrics_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Compute the times when the max metrics occurred
+/SCRIPT_FILE_NAME=SUB_MaxMetricsTimes_LH.v3s
+/SCRIPT_PATH= Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Merge the data in preparation for export to ASCII files
+/SCRIPT_FILE_NAME=SUB_MergeData_LH.v3s
+/SCRIPT_PATH=Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+
+Call_Script
+! Export data to matfiles
+/SCRIPT_FILE_NAME=SUB_ExportDataMAT_LH.v3s
+/SCRIPT_PATH=Z:\SSL\Research\Graduate Students\Thompson, Devin\C-Motion\PitchModality\Pipelines\LH\
+;
+

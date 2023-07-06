@@ -1,0 +1,26 @@
+! Devin Thompson
+! 12/22/2020
+! Pre-Processing subscript
+! Part of the main processing script, this script does all of the pre-processing stuff, it clears the current workspace, loads the correct .cmz file will all the trial data, sets the output path, selects the desired files and removes the unlabeled markers from the trials
+
+File_New
+! Clear the workspace in Visual3D
+;
+
+File_Open
+! Load the .cmo or .cmz workspace for whichever subject you are interested in
+ /FILE_NAME=
+! /SUFFIX=
+/SET_PROMPT= Select raw .cmz to process
+! /FILTER=
+;
+
+Select_Active_File
+/FILE_NAME= Good
+! /QUERY=
+;
+
+Remove_Unlabeled_Points
+! /INCLUDE_MODELS=FALSE
+;
+
