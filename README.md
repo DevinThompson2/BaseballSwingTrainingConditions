@@ -1,7 +1,7 @@
 # Baseball Swing - Training Conditions
 A repository of the data from the pitch modality study used for my thesis work. 
 
-To read my thesis, visit my LinkedIn profile: https://www.linkedin.com/in/devin-thompson-180198b7/
+To read my thesis, visit my LinkedIn profile: https://www.linkedin.com/in/devin-thompson-180198b7/ or ProQuest: https://www.proquest.com/docview/2836737489/abstract/EEBFE22334524870PQ/1?parentSessionId=pWpNt3lZ6noeYlL30hUh9GB2XPymb2htssYgZU5dPAo%3D
 
 It contains more information on methodology and details the calculations and results.
 
