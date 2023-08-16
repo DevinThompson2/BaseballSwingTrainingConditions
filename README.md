@@ -16,18 +16,17 @@ Trials were collected under four unique training conditions, where the pitch was
 
 The following image details the setup:
 
-![SetupFigure](https://github.com/DevinThompson2/BaseballSwingTrainingConditions/assets/53098472/8686258c-6baa-411b-b3f9-ffaade7b2c3b)
+![SetupFigure](https://github.com/DevinThompson2/BaseballSwingTrainingConditions/assets/53098472/8ef8e4d5-ac12-4657-8139-5696ae9fdd44)
 
-The distances and pitch speeds were chosen so that the amount of time from release to home plate was approximately controlled. All pitches were four-seam fastballs.
+The distances and pitch speeds were chosen so that the amount of time from release to home plate was approximately controlled. All pitches were four-seam fastballs. Data were captured at 500Hz with a 10-camera, Vicon passive IR motion capture system.
 
 ## Markerset
-![Markerset](https://github.com/DevinThompson2/BaseballSwingTrainingConditions/assets/53098472/0decf81d-ef2c-4821-bef5-62ac6b6b8bcb)
+![Markerset](https://github.com/DevinThompson2/BaseballSwingTrainingConditions/assets/53098472/d74f8091-b257-4354-af5a-523e9cab6c6f)
 
 LMEP and RMEP are calibration only markers. They exist in the calibration file but not the motion files.
 
 ## Global Coordinate System
-
-![ImpactEvent](https://github.com/DevinThompson2/BaseballSwingTrainingConditions/assets/53098472/52c16f77-4399-4445-bc27-8475eb4b34d6)
+![ImpactEvent](https://github.com/DevinThompson2/BaseballSwingTrainingConditions/assets/53098472/97334144-4c8e-4173-8894-b4f00e4f0ffc)
 
 The global +y-direction is towards the pitcher, the global +z-direction is vertical, and the +x-direction is the cross product of the y and z directions, using the right-hand rule. This ends up being to the right, when facing the pitcher. 
 
