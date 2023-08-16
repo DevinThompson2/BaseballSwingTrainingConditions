@@ -1,4 +1,4 @@
-# Baseball Swing - Training Conditions
+# Baseball Swing - Training Conditions - edit
 A repository of the data from the pitch modality study used for my thesis work. 
 
 To read my thesis, visit my [LinkedIn profile](https://www.linkedin.com/in/devin-thompson-180198b7/) or ProQuest: 
